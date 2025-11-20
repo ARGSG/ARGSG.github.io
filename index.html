@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aguas Argentina</title>
+    <link rel="stylesheet" href="estilos_grandes.css">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            color: #d1d5db;
+            font-family: Arial, sans-serif;
+            font-size: 1.3rem;
+            position: relative;
+        }
+
+        h1, h2 {
+            font-size: 2.2rem;
+        }
+
+        li, p, a, input, textarea, button {
+            font-size: 1.2rem;
+        }
+
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -10;
+            opacity: 0.7;
+        }
+
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,102,204,0.5), rgba(0,153,255,0.4), rgba(102,204,255,0.3));
+            mix-blend-mode: multiply;
+            z-index: -5;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .logo {
+            color: #38bdf8;
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        nav {
+            display: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+        }
+
+        .menu-btn {
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-nav {
+            display: none;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+        }
+
+        .mobile-nav a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 15px;
+            font-size: 1.3rem;
+            border-bottom: 1px solid #ffffff20;
+        }
+
+        section {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            display: none;
+            text-align: center;
+        }
+
+        section:target {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .content-wrapper {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.9);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        @media (min-width: 768px) {
+            nav {
+                display: flex;
+            }
+            .menu-btn {
+                display: none;
+            }
+            .mobile-nav {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img class="background-image" 
+         alt="Fondo de paisaje" 
+         src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
+    
+    <div class="background-overlay"></div>
+
+    <header>
+        <a href="#inicio" class="logo">Aguas Argentina</a>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#rios">Ríos</a>
+            <a href="#cataratas">Cataratas</a>
+            <a href="#lagos">Lagos</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+        <div class="menu-btn" onclick="toggleMobileMenu()">☰</div>
+    </header>
+
+    <div class="mobile-nav" id="mobileMenu">
+        <a href="#inicio" onclick="toggleMobileMenu()">Inicio</a>
+        <a href="#rios" onclick="toggleMobileMenu()">Ríos</a>
+        <a href="#cataratas" onclick="toggleMobileMenu()">Cataratas</a>
+        <a href="#lagos" onclick="toggleMobileMenu()">Lagos</a>
+        <a href="#contacto" onclick="toggleMobileMenu()">Contacto</a>
+    </div>
+
+    <main>
+        <section id="inicio">
+            <div class="content-wrapper">
+                <h1>Explorá los paisajes naturales más impresionantes</h1>
+            </div>
+        </section>
+
+        <section id="rios">
+            <div class="content-wrapper">
+                <h2>Ríos de Argentina</h2>
+                <ul>
+                    <li><strong>Cuenca de la Plata:</strong> Una de las más grandes del mundo. Abarca gran parte del noroeste Argentino y conecta con países vecinos.</li>
+                    <li><strong>Río Paraná:</strong> Uno de los más largos de Sudamérica. Pasa por el noreste del país y forma parte de la cuenca de la Plata.</li>
+                    <li><strong>Río Uruguay:</strong> Nace en Brasil y forma el límite entre Argentina y Brasil, también lo marca entre Argentina y Uruguay. Junto con el Paraná, desemboca en el Río de la Plata.</li>
+                    <li><strong>Río de la Plata:</strong> Estuario formado por la unión del Paraná y el Uruguay. Importante por el pueblo de Buenos Aires.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="cataratas">
+            <div class="content-wrapper">
+                <h2>Cataratas del Iguazú</h2>
+                <p>Ubicadas en el Parque Nacional Iguazú (Misiones), en la frontera con Brasil. Tiene 275 saltos de agua, el más famoso es la Garganta del Diablo. Son patrimonio de la humanidad por la UNESCO y una de las 7 maravillas naturales del mundo. Formadas por el Río Iguazú, afluente del Paraná.</p>
+            </div>
+        </section>
+
+        <section id="lagos">
+            <div class="content-wrapper">
+                <h2>Lagos de Argentina</h2>
+                <ul>
+                    <li><strong>Lago Nahuel Huapi (Río Negro - Neuquén):</strong> Dentro del parque nacional del mismo nombre. En sus orillas está la ciudad de Bariloche.</li>
+                    <li><strong>Lago Lácar:</strong> En Neuquén, cercano a San Martín de los Andes; dentro del Parque Nacional Lanín. Tiene un desagüe hacia Chile, algo raro.</li>
+                    <li><strong>Lago Puelo:</strong> Situado en Chubut, muy cerca de la frontera de Chile. Está dentro del Parque Nacional Lago Puelo. Muy turístico por sus aguas turquesas y templadas en verano.</li>
+                    <li><strong>Lago Argentino:</strong> Situado en Santa Cruz, es el más grande de Argentina con una superficie de 1,466 km². Muy cerca del Glaciar Perito Moreno, su ciudad destacada es El Calafate. Se usa para excursiones lacustres a glaciares.</li>
+                    <li><strong>Lago Viedma:</strong> Ubicado en Santa Cruz, es el más conocido por ser el más salvaje y poco turístico que el Argentino. Apto para navegación y con vistas a montañas y glaciares.</li>
+                    <li><strong>Lago Traful, Lago Mascardi, Lago Gutiérrez, Lago Espejo:</strong> Todos están situados en la zona de los Siete Lagos, entre San Martín de los Andes y Villa La Angostura. Cuentan con paisajes espectaculares, bosques nativos y son muy visitados por turistas.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contacto">
+            <div class="content-wrapper">
+                <h2>Contacto</h2>
+                <form action="https://formsubmit.co/jonathancaramazana@gmail.com" method="POST">
+                    <input type="email" gmail="email" placeholder="Escriba su correo" required>
+                    <input type="text" name="Nombre completo" placeholder="Escribe tu mensaje" rows="4"required>
+                    <input type="hidden" name="_captcha" value="false">
+                    <button type="submit">Enviar mensaje</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+    <script defer src="https://static.getbutton.io/widget/bundle.js?id=N6ZlX" ></script>
+
+</body>
+</html>
